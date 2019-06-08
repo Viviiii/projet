@@ -28,7 +28,7 @@ System.out.println(e);
 }
 
 try {
-con=DriverManager.getConnection("jdbc:mysql://localhost:3306/projetjava","root","");// a la place de commande on met notre bdd
+con=DriverManager.getConnection("jdbc:mysql://localhost:3306/etudiant","root","");// a la place de commande on met notre bdd
 }
 catch(SQLException e){System.out.println(e);}
 

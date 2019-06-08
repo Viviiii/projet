@@ -28,12 +28,11 @@ public class gestion_etudiant extends javax.swing.JFrame {
        table_etud.addColumn("ID");
         table_etud.addColumn("nom");
         table_etud.addColumn("prenom");
-        table_etud.addColumn("type");
        
         try
         {
             stm=con.ObtenirConnexion().createStatement();
-            ResultSet Rs=stm.executeQuery("Select * from personne");///Nom de la table de la BDD
+            ResultSet Rs=stm.executeQuery("Select * from personne where type like 1");///Nom de la table de la BDD
             while(Rs.next())
             {
                 table_etud.addRow(new Object[]{Rs.getString("ID"),Rs.getString("nom"),Rs.getString("prenom"),Rs.getString("type")});
@@ -57,47 +56,47 @@ public class gestion_etudiant extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        Test = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         txtid = new javax.swing.JTextField();
         txtpr = new javax.swing.JTextField();
         txtno = new javax.swing.JTextField();
-        txttp = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableau_etud = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         getContentPane().setLayout(null);
 
+        Test.setLayout(null);
+
         jPanel3.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel5.setText("ID                :");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(36, 40, 90, 26);
+        jLabel5.setBounds(30, 110, 110, 40);
 
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
-        jLabel6.setText("Type           :");
-        jPanel3.add(jLabel6);
-        jLabel6.setBounds(38, 168, 100, 26);
-
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel7.setText("Prénom          :");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(30, 80, 110, 26);
+        jLabel7.setBounds(30, 170, 130, 40);
 
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jLabel8.setText(" Nom             :");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(30, 120, 90, 26);
+        jLabel8.setBounds(30, 230, 130, 30);
 
         txtid.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,7 +104,7 @@ public class gestion_etudiant extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtid);
-        txtid.setBounds(190, 50, 70, 26);
+        txtid.setBounds(200, 120, 120, 30);
 
         txtpr.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,21 +112,63 @@ public class gestion_etudiant extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtpr);
-        txtpr.setBounds(190, 90, 70, 26);
+        txtpr.setBounds(200, 170, 120, 30);
         jPanel3.add(txtno);
-        txtno.setBounds(190, 130, 70, 26);
+        txtno.setBounds(200, 230, 120, 30);
 
-        txttp.addActionListener(new java.awt.event.ActionListener() {
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        jLabel2.setText("Veuillez saisir les informations d'un étudiant pour");
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(20, 0, 450, 50);
+
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 22)); // NOI18N
+        jLabel3.setText(" l'inscrire, le modifier ou le supprimer");
+        jPanel3.add(jLabel3);
+        jLabel3.setBounds(60, 50, 370, 30);
+
+        Test.add(jPanel3);
+        jPanel3.setBounds(108, 137, 466, 330);
+
+        jPanel4.setLayout(null);
+        Test.add(jPanel4);
+        jPanel4.setBounds(1043, 535, 0, 0);
+
+        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton3.setText("Actualiser");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txttpActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanel3.add(txttp);
-        txttp.setBounds(190, 170, 70, 26);
+        Test.add(jButton3);
+        jButton3.setBounds(470, 563, 120, 31);
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(110, 90, 400, 330);
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
+        jLabel1.setText("Gestion des étudiants");
+        Test.add(jLabel1);
+        jLabel1.setBounds(306, 47, 460, 50);
 
+        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton2.setText("Modifier");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        Test.add(jButton2);
+        jButton2.setBounds(287, 563, 120, 30);
+
+        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton5.setText("Supprimer");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        Test.add(jButton5);
+        jButton5.setBounds(470, 485, 120, 30);
+
+        tableau_etud.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         tableau_etud.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -141,66 +182,41 @@ public class gestion_etudiant extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableau_etud);
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 390, Short.MAX_VALUE)
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 71, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel4);
-        jPanel4.setBounds(560, 100, 390, 320);
+        Test.add(jScrollPane2);
+        jScrollPane2.setBounds(656, 137, 452, 249);
 
         jButton1.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton1.setText("Ajouter");
+        jButton1.setText("Inscrire");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1);
-        jButton1.setBounds(200, 460, 120, 31);
+        Test.add(jButton1);
+        jButton1.setBounds(287, 485, 120, 31);
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton2.setText("Modifier");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton4.setText("Détails");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton4ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2);
-        jButton2.setBounds(200, 500, 120, 30);
+        Test.add(jButton4);
+        jButton4.setBounds(622, 485, 120, 31);
 
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton3.setText("Actualiser");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton6.setText("Retour au menu");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton6ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton3);
-        jButton3.setBounds(370, 460, 120, 31);
+        Test.add(jButton6);
+        jButton6.setBounds(950, 580, 180, 30);
 
-        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
-        jButton5.setText("Supprimer");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton5);
-        jButton5.setBounds(370, 500, 120, 30);
-
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
-        jLabel1.setText("Gestion des étudiants");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(290, 30, 460, 50);
+        getContentPane().add(Test);
+        Test.setBounds(20, 30, 1150, 650);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -208,66 +224,51 @@ public class gestion_etudiant extends javax.swing.JFrame {
         String Id=txtid.getText();
           String Nom=txtno.getText();
         String Prenom=txtpr.getText();
-        String Type=txttp.getText();
 
-String req="INSERT INTO personne(ID,nom,prenom,type)VALUES('"+Id+"','"+Nom+"','"+Prenom+"','"+Type+"')";
+String req="INSERT INTO personne(ID,nom,prenom,type)VALUES('"+Id+"','"+Nom+"','"+Prenom+"','1')";
+String req1="INSERT INTO inscription(ID,classe_id,personne_id )VALUES('"+Id+"',1,'"+Id+"')";
 try { 
     stm=con.ObtenirConnexion().createStatement();
 
     stm.executeUpdate(req);
+        stm.executeUpdate(req1);
     JOptionPane.showMessageDialog(null,"Requête exécutée");
     txtno.setText("");
     txtpr.setText("");
-    txttp.setText("");
 
 }
 catch(SQLException e){
     System.err.println(e);
 JOptionPane.showMessageDialog(null,"Ce numéro d'Id est déjà attribué, veuillez en choisir un autre ");
 }
+actualiser();
     }//GEN-LAST:event_jButton1ActionPerformed
     ///Modifier un étudiant
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         try
         {
+            System.out.print("UPDATE personne SET nom='"+txtno.getText()+"',prenom='"+txtpr.getText()+"',type='1'"+"where ID like "+txtid.getText());
             if(JOptionPane.showConfirmDialog(null,"Confirmez la modification ?","modification",JOptionPane.YES_NO_OPTION)== JOptionPane.OK_OPTION)
             {
-                stm.executeUpdate("UPDATE personne SET nom='"+txtno.getText()+"',prenom='"+txtpr.getText()+"',type='"+txttp.getText()+"'WHERE ID="+txtid.getText());
+                stm.executeUpdate("UPDATE personne SET nom='"+txtno.getText()+"',prenom='"+txtpr.getText()+"',type='1'"+"where ID like "+txtid.getText());
+                
             }
         }catch(Exception e)
                 {
                     JOptionPane.showMessageDialog(null,"Erreur"+e.getMessage());
                 }
+        actualiser();
     }//GEN-LAST:event_jButton2ActionPerformed
     ///Actualiser la liste des étudiants
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-          try
-        {
-            table_etud.setRowCount(0);
-            stm=con.ObtenirConnexion().createStatement();
-            ResultSet Rs=stm.executeQuery("Select * from personne");///Nom de la table de la BDD
-            while(Rs.next())
-            {
-                table_etud.addRow(new Object[]{Rs.getString("ID"),Rs.getString("nom"),Rs.getString("prenom"),Rs.getString("type")});
-            }
-            
-        }
-        catch(Exception e)
-        {
-            System.out.println(e);
-        }
-        tableau_etud.setModel(table_etud);
+          actualiser();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void txtidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidActionPerformed
-
-    private void txttpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txttpActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txttpActionPerformed
 
     private void txtprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtprActionPerformed
         // TODO add your handling code here:
@@ -285,9 +286,53 @@ JOptionPane.showMessageDialog(null,"Ce numéro d'Id est déjà attribué, veuill
                 {
                     JOptionPane.showMessageDialog(null,"Erreur"+e.getMessage());
                 }
+         actualiser();
         
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable(){
+
+            public void run()
+            {
+                new gestion_etudiant().setVisible(false);
+                new detail_etud().setVisible(true);
+            }
+        });
+
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new detail_etud().setVisible(false);
+                new Menu().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    //fonction actualiser etudiants
+    public void actualiser(){
+        try
+        {
+            table_etud.setRowCount(0);
+            stm=con.ObtenirConnexion().createStatement();
+            ResultSet Rs=stm.executeQuery("Select * from personne where type like 1");///Nom de la table de la BDD
+            while(Rs.next())
+            {
+                table_etud.addRow(new Object[]{Rs.getString("ID"),Rs.getString("nom"),Rs.getString("prenom")});
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        tableau_etud.setModel(table_etud);
+    }
+    
 public static void main (String args[])
 {
     java.awt.EventQueue.invokeLater(new Runnable(){
@@ -299,13 +344,17 @@ public static void main (String args[])
     });
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Test;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel3;
@@ -315,7 +364,6 @@ public static void main (String args[])
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtno;
     private javax.swing.JTextField txtpr;
-    private javax.swing.JTextField txttp;
     // End of variables declaration//GEN-END:variables
 
 }
