@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Leon
+ * @author Victor
  */
 public class detail_bulletin extends javax.swing.JFrame {
 
