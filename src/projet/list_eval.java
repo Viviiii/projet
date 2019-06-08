@@ -13,10 +13,15 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+
 
 /**
  *
- * @author Victor
+ * @author Leon
  */
 public class list_eval extends javax.swing.JFrame {
 
@@ -71,6 +76,7 @@ public class list_eval extends javax.swing.JFrame {
         txtappr = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        reportingButton = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,6 +167,8 @@ public class list_eval extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(90, 190, 500, 150);
+
+        jProgressBar1.setForeground(new java.awt.Color(204, 0, 51));
         getContentPane().add(jProgressBar1);
         jProgressBar1.setBounds(100, 380, 500, 40);
 
@@ -266,6 +274,17 @@ public class list_eval extends javax.swing.JFrame {
         getContentPane().add(jPanel3);
         jPanel3.setBounds(680, 190, 240, 170);
 
+        reportingButton.setBackground(new java.awt.Color(255, 204, 204));
+        reportingButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        reportingButton.setText("Reporting");
+        reportingButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                reportingButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(reportingButton);
+        reportingButton.setBounds(730, 380, 110, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -326,6 +345,10 @@ public class list_eval extends javax.swing.JFrame {
         }
         actualiser();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void reportingButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reportingButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_reportingButtonActionPerformed
 
     public void actualiser(){
         //Liste Eval
@@ -403,6 +426,7 @@ public class list_eval extends javax.swing.JFrame {
                 new list_eval().setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -426,6 +450,7 @@ public class list_eval extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JButton reportingButton;
     private javax.swing.JTextField txtappr;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtidbul;
