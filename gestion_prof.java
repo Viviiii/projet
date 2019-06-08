@@ -198,7 +198,7 @@ try {
     stm=con.ObtenirConnexion().createStatement();
 
     stm.executeUpdate(req);
-        stm.executeUpdate(req1);
+        //stm.executeUpdate(req1);
     JOptionPane.showMessageDialog(null,"Requête exécutée");
     txtno.setText("");
     txtpr.setText("");
