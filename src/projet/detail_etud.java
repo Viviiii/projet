@@ -8,6 +8,10 @@ package projet;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+<<<<<<< HEAD
+=======
+import javax.swing.table.DefaultTableModel;
+>>>>>>> parent of 00443c0... Possibilité d'ajouter et supprimer note et bulletin
 
 
 /**
@@ -52,6 +56,26 @@ public class detail_etud extends javax.swing.JFrame {
         txtid = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+<<<<<<< HEAD
+=======
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        jButton5 = new javax.swing.JButton();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+>>>>>>> parent of 00443c0... Possibilité d'ajouter et supprimer note et bulletin
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -163,6 +187,48 @@ public class detail_etud extends javax.swing.JFrame {
         getContentPane().add(jButton4);
         jButton4.setBounds(650, 120, 90, 30);
 
+<<<<<<< HEAD
+=======
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "ID du bulletin", "Trimestre", "Appréciation"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        getContentPane().add(jScrollPane2);
+        jScrollPane2.setBounds(290, 390, 500, 150);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel7.setText("Bulletin");
+        getContentPane().add(jLabel7);
+        jLabel7.setBounds(500, 340, 210, 22);
+
+        jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton5.setText("Détail Bulletin");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton5);
+        jButton5.setBounds(770, 120, 160, 30);
+
+>>>>>>> parent of 00443c0... Possibilité d'ajouter et supprimer note et bulletin
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -260,8 +326,48 @@ public class detail_etud extends javax.swing.JFrame {
         }
         
         
+<<<<<<< HEAD
     }//GEN-LAST:event_jButton4ActionPerformed
 
+=======
+        
+        
+    //Bulletin
+        try
+        {
+            stm=con.ObtenirConnexion().createStatement();
+            ///Recupère les ID de la discipline
+            Rs=stm.executeQuery("Select ID from inscription WHERE Personne_id LIKE "+txtid.getText());
+            if(Rs.next()){
+             inscription_ID = Rs.getString("ID");   
+            }
+             System.out.println(inscription_ID);
+            
+            Rs=stm.executeQuery("Select ID, Trimestre_id, appreciation from bulletin WHERE Inscription_id LIKE "+inscription_ID);
+            while(Rs.next())
+            {
+                table_bulletin.addRow(new Object[]{Rs.getString("ID"),Rs.getString("Trimestre_id"),Rs.getString("appreciation")});
+            }
+            
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+        jTable2.setModel(table_bulletin);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+                 java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new detail_etud().setVisible(false);
+                new detail_bulletin().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+>>>>>>> parent of 00443c0... Possibilité d'ajouter et supprimer note et bulletin
     /**
      * @param args the command line arguments
      */
@@ -306,8 +412,18 @@ public class detail_etud extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+<<<<<<< HEAD
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+=======
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+>>>>>>> parent of 00443c0... Possibilité d'ajouter et supprimer note et bulletin
     private javax.swing.JTextField txtcla;
     private javax.swing.JTextField txtid;
     private javax.swing.JTextField txtniv;
