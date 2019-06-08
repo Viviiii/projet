@@ -7,7 +7,9 @@ package projet;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
@@ -31,6 +33,7 @@ public class list_eval extends javax.swing.JFrame {
     
     public list_eval() {
         initComponents();
+        table_bulletin.addColumn("ID");
         table_bulletin.addColumn("Note");
         table_bulletin.addColumn("Appréciation");
     }
@@ -58,6 +61,16 @@ public class list_eval extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtidbul = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txttri = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtappr = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -127,17 +140,17 @@ public class list_eval extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "Note", "Appréciation"
+                "ID de l'évaluation", "Note", "Appréciation"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                true, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -147,23 +160,111 @@ public class list_eval extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(300, 190, 500, 150);
+        jScrollPane2.setBounds(90, 190, 500, 150);
         getContentPane().add(jProgressBar1);
-        jProgressBar1.setBounds(306, 380, 500, 40);
+        jProgressBar1.setBounds(100, 380, 500, 40);
 
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Moyenne");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(470, 430, 160, 14);
+        jLabel2.setBounds(260, 430, 160, 14);
 
         jLabel3.setText("Note en dessous de la moyenne");
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(310, 360, 220, 14);
+        jLabel3.setBounds(100, 360, 220, 14);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Note au dessus de la moyenne");
         getContentPane().add(jLabel4);
-        jLabel4.setBounds(600, 360, 210, 14);
+        jLabel4.setBounds(390, 360, 210, 14);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Ajouter un bulletin");
+
+        jLabel9.setText("ID du bulletin :");
+
+        jLabel10.setText("Note : ");
+
+        jLabel11.setText("Appréciation :");
+
+        txtappr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapprActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ajouter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Supprimer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jButton1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton2)
+                                    .addComponent(txtappr, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txttri, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                    .addComponent(txtidbul)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel8)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtidbul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txttri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtappr, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(26, 26, 26))
+        );
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(680, 190, 240, 170);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,11 +281,59 @@ public class list_eval extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+        actualiser();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void txtapprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapprActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtapprActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String idbul = txtidbul.getText();
+        String tri = txttri.getText();
+        String appr = txtappr.getText();
+        String id = txtid.getText();
+
+        String req="INSERT INTO evaluation(ID,DetailBulletin_id,note,appreciation)VALUES('"+idbul+"','"+id+"','"+tri+"','"+appr+"')";
+
+        try {
+            stm=con.ObtenirConnexion().createStatement();
+
+            stm.executeUpdate(req);
+            JOptionPane.showMessageDialog(null,"Requête exécutée");
+
+        }
+        catch(SQLException e){
+            System.err.println(e);
+            JOptionPane.showMessageDialog(null,"Ce numéro d'Id est déjà attribué, veuillez en choisir un autre ");
+        }
+
+        actualiser();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            if(JOptionPane.showConfirmDialog(null,"Confirmez la suppression du bulletin ?","suppression",JOptionPane.YES_NO_OPTION)== JOptionPane.OK_OPTION)
+            {
+                stm.executeUpdate("DELETE from evaluation WHERE ID="+txtidbul.getText());
+            }
+        }catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(null,"Erreur"+e.getMessage());
+        }
+        actualiser();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void actualiser(){
+        //Liste Eval
+        nbnotes = 0;
+        endessous = 0;
+        somme = 0;
+        moyenne = 0;
         
-        
-        
-        
-    //Liste Eval
         try
         {
             if(table_bulletin.getRowCount()>0){
@@ -194,10 +343,10 @@ public class list_eval extends javax.swing.JFrame {
             }
             stm=con.ObtenirConnexion().createStatement();
             ///Recupère les ID de la discipline
-            Rs=stm.executeQuery("Select note, appreciation from evaluation WHERE DetailBulletin_id LIKE "+txtid.getText());
+            Rs=stm.executeQuery("Select ID, note, appreciation from evaluation WHERE DetailBulletin_id LIKE "+txtid.getText());
             while(Rs.next())
             {
-                table_bulletin.addRow(new Object[]{Rs.getString("note"),Rs.getString("appreciation")});
+                table_bulletin.addRow(new Object[]{Rs.getString("ID"),Rs.getString("note"),Rs.getString("appreciation")});
                 somme+=Integer.parseInt(Rs.getString("note"));
                 nbnotes ++;
                 if(Integer.parseInt(Rs.getString("note"))<10){
@@ -217,8 +366,7 @@ public class list_eval extends javax.swing.JFrame {
             System.out.println(e);
         }
         jTable2.setModel(table_bulletin);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -258,19 +406,29 @@ public class list_eval extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField txtappr;
     private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidbul;
+    private javax.swing.JTextField txttri;
     // End of variables declaration//GEN-END:variables
 }

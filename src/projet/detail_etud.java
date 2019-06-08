@@ -7,7 +7,9 @@ package projet;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 
@@ -65,6 +67,16 @@ public class detail_etud extends javax.swing.JFrame {
         jTable2 = new javax.swing.JTable();
         jLabel7 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtidbul = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txttri = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtappr = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -211,12 +223,12 @@ public class detail_etud extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTable2);
 
         getContentPane().add(jScrollPane2);
-        jScrollPane2.setBounds(290, 390, 500, 150);
+        jScrollPane2.setBounds(30, 400, 500, 150);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel7.setText("Bulletin");
         getContentPane().add(jLabel7);
-        jLabel7.setBounds(500, 340, 210, 22);
+        jLabel7.setBounds(240, 360, 210, 22);
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton5.setText("Détail Bulletin");
@@ -227,6 +239,94 @@ public class detail_etud extends javax.swing.JFrame {
         });
         getContentPane().add(jButton5);
         jButton5.setBounds(770, 120, 160, 30);
+
+        jPanel3.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Ajouter un bulletin");
+
+        jLabel9.setText("ID du bulletin :");
+
+        jLabel10.setText("Trimestre :");
+
+        jLabel11.setText("Appréciation :");
+
+        txtappr.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtapprActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Ajouter");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Supprimer");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel11)
+                                    .addComponent(jButton1))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jButton2)
+                                    .addComponent(txtappr, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel10))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txttri, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                    .addComponent(txtidbul)))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jLabel8)))
+                .addContainerGap(34, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(txtidbul, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(txttri, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel11)
+                    .addComponent(txtappr, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(26, 26, 26))
+        );
+
+        getContentPane().add(jPanel3);
+        jPanel3.setBounds(600, 390, 240, 170);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -259,8 +359,69 @@ public class detail_etud extends javax.swing.JFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+         actualiser();
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+                 java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new detail_etud().setVisible(false);
+                new detail_bulletin().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        String idbul = txtidbul.getText();
+        String tri = txttri.getText();
+        String appr = txtappr.getText();
+        String id = txtid.getText();
+        
+        String req="INSERT INTO bulletin(ID,Trimestre_id,Inscription_id,appreciation)VALUES('"+idbul+"','"+tri+"','"+id+"','"+appr+"')";
+        
+        try { 
+    stm=con.ObtenirConnexion().createStatement();
+
+    stm.executeUpdate(req);
+    JOptionPane.showMessageDialog(null,"Requête exécutée");
+
+}
+catch(SQLException e){
+    System.err.println(e);
+JOptionPane.showMessageDialog(null,"Ce numéro d'Id est déjà attribué, veuillez en choisir un autre ");
+}
+        
+        actualiser();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            if(JOptionPane.showConfirmDialog(null,"Confirmez la suppression du bulletin ?","suppression",JOptionPane.YES_NO_OPTION)== JOptionPane.OK_OPTION)
+            {
+                stm.executeUpdate("DELETE from bulletin WHERE ID="+txtidbul.getText());
+            }
+        }catch(Exception e)
+                {
+                    JOptionPane.showMessageDialog(null,"Erreur"+e.getMessage());
+                }
+         actualiser();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtapprActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtapprActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtapprActionPerformed
+
+    
+    
+    //Fonction pour actualiser en permanence
+    public void actualiser(){        
          try
         {
+            table_bulletin.setRowCount(0);
             stm=con.ObtenirConnexion().createStatement();
             ResultSet Rs=stm.executeQuery("Select nom,prenom from personne WHERE ID LIKE "+txtid.getText());///Nom de la table de la BDD
             while(Rs.next())
@@ -337,18 +498,7 @@ public class detail_etud extends javax.swing.JFrame {
             System.out.println(e);
         }
         jTable2.setModel(table_bulletin);
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-                 java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new detail_etud().setVisible(false);
-                new detail_bulletin().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jButton5ActionPerformed
-
+    }
     /**
      * @param args the command line arguments
      */
@@ -385,26 +535,36 @@ public class detail_etud extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField txtappr;
     private javax.swing.JTextField txtcla;
     private javax.swing.JTextField txtid;
+    private javax.swing.JTextField txtidbul;
     private javax.swing.JTextField txtniv;
     private javax.swing.JTextField txtno;
     private javax.swing.JTextField txtpre;
+    private javax.swing.JTextField txttri;
     // End of variables declaration//GEN-END:variables
 }
