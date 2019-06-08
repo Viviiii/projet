@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package projet;
-import projet.gestion_etudiant;
+
 /**
  *
  * @author ludol
@@ -17,9 +17,7 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
     }
-     //Méthode qui change le panel de ta fenêtre
-   
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,10 +27,14 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(null);
@@ -45,7 +47,7 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton2);
-        jButton2.setBounds(100, 220, 203, 63);
+        jButton2.setBounds(108, 152, 203, 63);
 
         jButton3.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton3.setText("Elèves");
@@ -55,56 +57,33 @@ public class Menu extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3);
-        jButton3.setBounds(580, 220, 203, 63);
+        jButton3.setBounds(570, 152, 203, 63);
+
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
+        jButton4.setText("Inscription");
+        getContentPane().add(jButton4);
+        jButton4.setBounds(108, 406, 203, 63);
 
         jButton5.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton5.setText("Disciplines");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
         getContentPane().add(jButton5);
-        jButton5.setBounds(330, 390, 203, 63);
+        jButton5.setBounds(570, 406, 203, 63);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 48)); // NOI18N
-        jLabel1.setText("Gestion de l'école");
+        jLabel1.setText("Menu");
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(300, 40, 370, 70);
+        jLabel1.setBounds(380, 30, 250, 70);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-       java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(false);
-                new gestion_prof().setVisible(true);
-            }
-        });
-        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
-         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(false);
-                new gestion_etudiant().setVisible(true);
-            }
-        });
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-         java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(false);
-                new matière().setVisible(true);
-            }
-        });
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,8 +121,10 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
